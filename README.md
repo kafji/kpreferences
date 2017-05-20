@@ -6,7 +6,7 @@ _This is work in progress._
 
 Generate a class wrapper for SharedPreferences in Kotlin so we can use its properties to retrieve and set value in SharedPreferences.
 
-kotlin```
+```kotlin
 interface MyPreferences {
   var userOnboardingDone: Boolean
 }
@@ -14,8 +14,8 @@ interface MyPreferences {
 
 By proxy class (reflection) like Retrofit.
 
-kotlin```
-val myPrefs := Kreferences(sharedPreferences).create(MyPreferences::class)
+```kotlin
+val myPrefs = Kreferences(sharedPreferences).create(MyPreferences::class)
 if (myPrefs.userOnboadingDone) {
   showUserOnboarding()
 }
@@ -23,12 +23,12 @@ if (myPrefs.userOnboadingDone) {
 
 By annotation processing and codegen like Dagger and ButterKnife.
 
-kotlin```
+```kotlin
 @Preferences interface MyPreferences {
   var userOnboardingDone: Boolean
 }
 
-val myPrefs := KreferencesMyPreferences(sharedPreferences)
+val myPrefs = KreferencesMyPreferences(sharedPreferences)
 if (myPrefs.userOnboadingDone) {
   showUserOnboarding()
 }
