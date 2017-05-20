@@ -1,0 +1,17 @@
+apply plugin: 'kotlin'
+
+sourceCompatibility = rootProject.ext.sourceCompatibilityVersion
+targetCompatibility = rootProject.ext.targetCompatibilityVersion
+
+dependencies {
+  compile rootProject.ext.deps.kotlinStdlibJre7
+  compile rootProject.ext.deps.kotlinReflect
+  compile rootProject.ext.deps.autoService
+  kapt rootProject.ext.deps.autoService
+  compile project(":kref")
+  compile rootProject.ext.deps.android
+  compile rootProject.ext.deps.kotlinPoet
+  testCompile rootProject.ext.deps.junit
+  testCompile rootProject.ext.deps.truth
+  testCompile rootProject.ext.deps.compileTesting
+}

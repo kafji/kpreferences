@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  buildToolsVersion rootProject.ext.buildToolsVersion
+
+  defaultConfig {
+    applicationId 'moe.kafji.kref.example'
+    minSdkVersion rootProject.ext.minSdkVersion
+    targetSdkVersion rootProject.ext.targetSdkVersion
+    versionCode 1
+    versionName '1.0.0'
+  }
+
+  compileOptions {
+    sourceCompatibility rootProject.ext.sourceCompatibilityVersion
+    targetCompatibility rootProject.ext.targetCompatibilityVersion
+  }
+
+  lintOptions {
+    abortOnError false
+  }
+}
+
+dependencies {
+  compile rootProject.ext.deps.kotlinStdlibJre7
+  compile rootProject.ext.deps.kotlinReflect
+  compile project(":kref")
+  kapt project(":kref-compiler")
+  testCompile rootProject.ext.deps.robolectric
+  testCompile rootProject.ext.deps.junit
+  testCompile rootProject.ext.deps.truth
+}
+

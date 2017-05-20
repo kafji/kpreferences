@@ -1,0 +1,4 @@
+rootProject.name = 'kref-parent'
+include 'kref'
+include 'kref-compiler'
+include 'kref-example'

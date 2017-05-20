@@ -1,0 +1,61 @@
+group 'moe.kafji.kreferences'
+version '0.1.0-SNAPSHOT'
+
+buildscript {
+  ext.kotlin_version = '1.1.2-2'
+
+  repositories {
+    jcenter()
+    mavenCentral()
+    mavenLocal()
+  }
+
+  dependencies {
+    classpath 'com.android.tools.build:gradle:2.3.2'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+  }
+}
+apply plugin: 'kotlin'
+
+allprojects {
+  repositories {
+    jcenter()
+    mavenCentral()
+    maven {
+      url 'https://oss.sonatype.org/content/repositories/snapshots/'
+    }
+    mavenLocal()
+  }
+}
+
+ext {
+  minSdkVersion = 15
+  targetSdkVersion = 25
+  compileSdkVersion = 25
+  buildToolsVersion = '25.0.2'
+  sourceCompatibilityVersion = JavaVersion.VERSION_1_7
+  targetCompatibilityVersion = JavaVersion.VERSION_1_7
+}
+
+
+
+ext.deps = [
+    android         : 'com.google.android:android:4.1.1.4',
+    robolectric     : 'org.robolectric:robolectric:3.3.2',
+    kotlinStdlibJre7: "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version",
+    kotlinReflect   : "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version",
+//    kotlinPoet      : "com.squareup:kotlinpoet:0.1.0",
+    kotlinPoet      : files('libs/kotlinpoet-0.2.0-FORKED.jar'),
+    junit           : 'junit:junit:4.12',
+    truth           : 'com.google.truth:truth:0.32',
+    mockito         : 'org.mockito:mockito-core:2.7.22',
+    compileTesting  : 'com.google.testing.compile:compile-testing:0.8',
+    autoService     : 'com.google.auto.service:auto-service:1.0-rc3',
+    autoCommon      : 'com.google.auto:auto-common:0.8',
+]
+repositories {
+  mavenCentral()
+}
+dependencies {
+  compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+}
