@@ -18,11 +18,11 @@ object PreferenceDelegates {
   fun string(p: SharedPreferences, key: String? = null, default: String = defaultString) = StringPreferenceProperty(p, key, default)
   fun int(p: SharedPreferences, key: String? = null, default: Int = defaultInt) = IntPreferenceProperty(p, key, default)
   fun long(p: SharedPreferences, key: String? = null, default: Long = defaultLong) = LongPreferenceProperty(p, key, default)
-  fun float(p: SharedPreferences, key: String? = null, default: Float = defaultFloat) = FloatPreferenceProperty(p, key, default)
+  fun float(p: SharedPreferences, key: String? = null, default: Float = defaultFloat) = FloatPreferenceProperaty(p, key, default)
   fun stringSet(p: SharedPreferences, key: String? = null, default: Set<String> = defaultStringSet) = StringSetPreferenceProperty(p, key, default)
 }
 
-abstract class PreferenceProperty<in R, T>(private val key: String?) : ReadWriteProperty<R, T> {
+abstract class PreferenceProperty<in R, T> internal constructor(private val key: String?) : ReadWriteProperty<R, T> {
   fun key(property: KProperty<*>): String = key ?: property.name
 }
 
